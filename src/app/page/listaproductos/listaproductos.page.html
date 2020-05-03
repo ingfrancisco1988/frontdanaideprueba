@@ -1,1 +1,48 @@
-<p>listaproductos works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Lista de productos</span>
+      <span class="example-spacer"></span>
+      <div class="example-icon">
+        <button mat-fab color="accent" (click)="irAlCarrito()">
+          <mat-icon>local_grocery_store</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile
+      *ngFor="let productos of mostrarProductos;let i=index;"
+      colspan="2"
+      rowspan="2"
+      style.background='lightblue'>
+    <section class="grid" *ngIf="productos.cantidad != 0" > 
+        <div class="row">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title> Poducto Codigo:  {{productos.codProducto}}</mat-card-title>
+                  <mat-card-subtitle>Poducto Descipción:  {{productos.descripcion}}</mat-card-subtitle>
+                </mat-card-header>
+                
+                <mat-card-content>
+                    <div class="row"> 
+                        Poducto Precio:  {{productos.precio |currency:'arg$'}}
+                    </div>
+                    <div class="row">
+                        Poducto Stock:  {{productos.cantidad}}
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-mini-fab color="primary" (click)="enviarstock(productos.cantidad,i)" >
+                        <mat-icon>add_circle_outline</mat-icon>
+                      </button>                   
+                </mat-card-actions>
+              </mat-card>
+        </div>
+
+
+    </section>
+  </mat-grid-tile>
+</mat-grid-list> 

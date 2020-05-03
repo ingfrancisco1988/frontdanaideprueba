@@ -1,1 +1,19 @@
-<p>home works!</p>
+
+
+<section>
+    <mat-card class="ancho" *ngFor="let cliente of this.todosLosclientes;let val=index;">
+        <mat-card-title>
+            {{cliente.nombre}} {{cliente.apellido}}
+        </mat-card-title>
+        <mat-card-content>
+            {{cliente.tipoCliente!=0?"Cliente Vip":"Cliente Común"}}
+        </mat-card-content>
+        
+            <button mat-button color="primary" (click)="pasandoCliente(val)">Seleccionar</button>
+         
+    </mat-card>
+</section>
+
+<div *ngIf="clienteVip">
+    Su Mebresia Vip sera removida no posee compras {{mostrandoMesFaltante}}
+</div>

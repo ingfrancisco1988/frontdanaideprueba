@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListaproductosPage } from './listaproductos.page';
+import { ListaproductosPage, DialogOverviewExampleDialog } from './listaproductos.page';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from 'src/app/material/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -10,6 +11,7 @@ import { MaterialModule } from 'src/app/material/material.module';
   declarations: [ListaproductosPage],
   imports: [
     CommonModule,
+    FormsModule,
     
     RouterModule.forChild([
       {
@@ -19,6 +21,6 @@ import { MaterialModule } from 'src/app/material/material.module';
       
     ]),
     MaterialModule,
-  ]
+  ],
 })
 export class ListaproductosModule { }

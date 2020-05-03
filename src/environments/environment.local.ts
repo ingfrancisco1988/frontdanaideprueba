@@ -4,7 +4,7 @@ export const ENV: EnvInterface = {
     production: true
   },
   isDebugMode: true,
-  API_ENDPOINT: 'http://localhost:8080/api',
+  API_ENDPOINT: 'http://localhost:8080/api'
    
 };
  

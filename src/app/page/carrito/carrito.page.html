@@ -1,1 +1,58 @@
-<p>carrito works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Lista de productos</span>
+      <span class="example-spacer"></span>
+      <div class="example-icon">
+        <button mat-fab color="accent" (click)="volverToProducto()">
+          <mat-icon>local_grocery_store</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="float">
+    {{fechaActual|date:'dd/MM/yyyy'}}
+  </div>
+<section  class="cambio">
+   
+    <table matSort  >
+        <tr>
+          <th  mat-sort-header>Codigo</th>
+          <th mat-sort-header >Descripción</th>
+          <th mat-sort-header >Cantidad</th>
+          <th mat-sort-header >Editar Cantidad</th>
+          <th mat-sort-header >Eliminar</th>
+        </tr>
+      
+        <tr *ngFor="let productos of productosSeleccionados;let i =index;">
+          <td>{{productos.codProducto}}</td>
+          <td>{{productos.descripcion}}</td>
+          <td>{{productos.cantidad}}</td>
+          <td>
+                <button mat-icon-button (click)="ediarCantidad(i)">
+                    <mat-icon>reply</mat-icon>
+                </button>
+            </td>
+          <td>
+            <button mat-icon-button (click)="borrarArticulo(i)">
+                <mat-icon>delete_sweep</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+
+      <section>
+        <mat-card> 
+            <div>
+                Subtotal: {{this.subtotal}}
+            </div>
+            <div>
+                Descuento: {{this.descuento}}
+            </div>
+            <div>
+              Total a pagar: {{this.montoTotal}}
+            </div>
+        </mat-card>
+      </section>
+ 
+</section>
+
